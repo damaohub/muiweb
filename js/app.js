@@ -126,10 +126,13 @@ if($("#Div1")[0]){
         function alertWindow (){
             mui("#agent").popover("show");
         }
-        function delayAlert (){
-            setTimeout(alertWindow,10000);
-        }
-        delayAlert();
+
+            var delayAlert = setTimeout(alertWindow,10000);
+
+        mui('body').on('shown', '.form-ly', function(e) {
+            clearTimeout(delayAlert);
+        });
+        //delayAlert();
        // setInterval(delayAlert,3000)
     }
 
@@ -192,7 +195,7 @@ if(document.getElementById("agent")&&mui(".yellow2")){
 
 })
 
-console.log(document.getElementsByClassName("mui-table-view"));
+//console.log(document.getElementsByClassName("mui-table-view"));
 
 
 
